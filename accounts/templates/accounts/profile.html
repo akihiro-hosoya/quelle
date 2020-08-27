@@ -1,0 +1,50 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item">プロフィール</li>
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid main-wrapper">
+    <div class="row">
+
+        <!-- ---------- プロフィール欄 ---------- -->
+        <div class="col-12 mt-5">
+            <div class="">
+                <h4 class="mb-3 text-center">Your Profile</h4>
+                <hr>
+                <table class="profile_table">
+                    <tbody>
+                        <tr>
+                            <th class="header">名前</th>
+                            <td class="data">xxx</td>
+                        </tr>
+                        <tr>
+                            <th class="header">メールアドレス</th>
+                            <td class="data">xxx</td>
+                        </tr>
+                        <tr>
+                            <th class="header">所属</th>
+                            <td class="data">xxx</td>
+                        </tr>
+                        <tr>
+                            <th class="header">役職</th>
+                            <td class="data">xxx</td>
+                        </tr>
+                        <tr>
+                            <th class="header">入会日</th>
+                            <td class="data">xxx</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="button mx-auto mt-3">
+                    <a href="#" class="btn btn-warning btn-block">編集する</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

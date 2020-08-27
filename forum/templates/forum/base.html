@@ -32,22 +32,8 @@
                 </button>
                 <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarToggler">
                     <ul class="navbar-nav">
-                        <!-- {% if user.is_authenticated %} -->
                         <li class="nav-item">
-                            <a href="" class="nav-link">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Question</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Logout</a>
-                        </li>
-                        <!-- {% else %} -->
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Top</a>
+                            <a href="{% url 'profile' %}" class="nav-link">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Signup</a>
@@ -55,15 +41,18 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">Login</a>
                         </li>
-                        <!-- {% endif %} -->
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 
-    {% block content %}
-    {% endblock content %}
+    <main>
+        <div class="container">
+            {% block content %}
+            {% endblock content %}        
+        </div>
+    </main>
 
     <!-- ---------- Footer ---------- -->
     <footer>

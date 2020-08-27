@@ -6,9 +6,10 @@
 }
 
 body {
+    background: #F1F1F1;
     display: flex;
-    min-height: 100vh;
-}
+    flex-flow: column;
+    min-height: 100vh;}
 
 main {
     flex: 1;
@@ -65,6 +66,41 @@ p {
 .N-items {
     text-align: end;
 }
+
+/* プロフィール欄 */
+.profile_table {
+    width: 100%;
+    border: 5px solid black;
+    border-radius: 1rem;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.profile_table .header {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    background-color: #CCFFFF;
+}
+
+.profile_table .data {
+    padding: 20px;
+    background-color: white;
+}
+
+.button {
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* ---------- Search欄 ---------- */
 .fa-caret-right {
@@ -140,20 +176,13 @@ p {
 }
 
 
-/* ---------- 背景調整 ---------- */
-.main-wrapper {
-    width: 75%;
-    margin: 0 auto;
-}
-
-
 /* ---------- 質問検索欄 ---------- */
-.Qsearcher {
+/* .Qsearcher {
     background-color: #fff;
-}
+} */
 
 /* ---------- カテゴリ検索欄 ---------- */
-.category-item {
+/* .category-item {
     text-align: center;
 }
 .card-img-top {
@@ -187,12 +216,12 @@ p {
 
 .c_dm_1:hover .c_dm_2 {
     visibility: visible;
-}
+} */
 
 /* .c_dm_2_sub {
     position: relative;
 } */
-
+/* 
 .c_dm_3 {
     position: absolute;
     top: 0;
@@ -213,7 +242,7 @@ p {
 
 .category-icon-other:hover {
     text-decoration: none;
-}
+} */
 
 
 
