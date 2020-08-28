@@ -75,6 +75,16 @@ p {
     content: "\0bb" 
 }
 
+/* News */
+.post_header {
+    display: grid;
+    justify-content: end;
+}
+.post_header p {
+    margin: 0.2rem;
+}
+
+
 /* プロフィール欄 */
 .main_wrap{
     width: 60vw;

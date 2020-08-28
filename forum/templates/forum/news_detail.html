@@ -1,0 +1,28 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item"><a href="{% url 'forum:news_list' %}">NEWS</a></li>
+<li class="breadcrumb-item active">{{ news_data.title|truncatechars:10 }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <!-- ----- News ----- -->
+            <h3 class="text-center">NEWS詳細</h3>
+            <hr>
+            <div class="card">
+                <div class="card-header post_header">
+                    <p>投稿者：{{ news_data.author }}</p>
+                    <p>投稿日時：{{ news_data.created_date }}</p>
+                </div>
+                <div class="card-body">
+                    <h5 class="text-info">{{ news_data.title }}</h5>
+                    <p>{{ news_data.text|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

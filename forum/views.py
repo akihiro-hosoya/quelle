@@ -14,3 +14,10 @@ class NewsListView(View):
         return render(request, 'forum/news_list.html', {
             'news_data': news_data,
         })
+
+class NewsDetailView(View):
+    def get(self, request, *args, **kwargs):
+        news_data = News.objects.get(id=self.kwargs['pk'])
+        return render(request, 'forum/news_detail.html', {
+            'news_data': news_data,
+        })
