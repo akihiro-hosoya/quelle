@@ -2,61 +2,59 @@
 {% load static %}
 
 {% block bread %}
-<li class="active">index.html</li>
+    <li class="active">index.html</li>
 {% endblock %}
 
 {% block content %}
 <!-- ---------- 質問検索欄 ---------- -->
-<div class="Qsearcher mt-2">
-    <div class="container-fluid main-wrapper padding">
-        <h2 class="text-center">質問を探す</h2>
-        <hr>
-        <div class="section-wrapper row padding">
-            <!-- ---------- カテゴリーから探す ---------- -->
-            <div class="col-12 my-3">
-                <div class="card shadow">
-                    <div class="card-header shadow-sm mb-2">
-                        <h4><span class="marker">カテゴリーから探す</span></h4>
-                    </div>
-                    <div class="row no-gutters d-flex justify-content-around">
-                        <!-- {% for grandcategory in grand_list %} -->
-                        <ul class="col-5 col-md-3 mr-2 mt-2">
-                            <li class="category-icon c_dm_1">
-                                <div class="card shadow-sm c_dm_1_sub">
-                                    <i class="card-img-top mt-3"></i>
-                                    <div class="card-body p-2">
-                                        <p class="card-text category-name1">a</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-center p-1">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
+<div class="main_wrap">
+    <h2 class="text-center">質問を探す</h2>
+    <hr>
+    <div class="section-wrapper row padding">
+        <!-- ---------- カテゴリーから探す ---------- -->
+        <div class="col-12 my-3">
+            <div class="card shadow">
+                <div class="card-header shadow-sm mb-2">
+                    <h4><span class="marker">カテゴリーから探す</span></h4>
+                </div>
+                <div class="row no-gutters d-flex justify-content-around">
+                    <!-- {% for grandcategory in grand_list %} -->
+                    <ul class="col-5 col-md-3 mr-2 mt-2">
+                        <li class="category-icon c_dm_1">
+                            <div class="card shadow-sm c_dm_1_sub">
+                                <i class="card-img-top mt-3"></i>
+                                <div class="card-body p-2">
+                                    <p class="card-text category-name1">a</p>
                                 </div>
-                                <ul class="flex-column c_dm_2">
-                                    <!-- {% for parentcategory in parent_list %}
+                                <div class="card-footer d-flex justify-content-center p-1">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <ul class="flex-column c_dm_2">
+                                <!-- {% for parentcategory in parent_list %}
                                     {% if parentcategory.grand.id == grandcategory.id %} -->
-                                    <li class="c_dm_2_sub">
-                                        <button class="dropdown-item">
-                                            <span>b</span><i class="fas fa-caret-right"></i>
-                                        </button>
-                                        <ul class="flex-column c_dm_3">
-                                            <!-- {% for category in category_list %}
+                                <li class="c_dm_2_sub">
+                                    <button class="dropdown-item">
+                                        <span>b</span><i class="fas fa-caret-right"></i>
+                                    </button>
+                                    <ul class="flex-column c_dm_3">
+                                        <!-- {% for category in category_list %}
                                             {% if category.parent.id == parentcategory.id %} -->
-                                            <li class="dropdown-item">
-                                                <a href="">
-                                                    <!-- {{ category.name }} -->
-                                                </a>
-                                            </li>
-                                            <!-- {% endif %}
+                                        <li class="dropdown-item">
+                                            <a href="">
+                                                <!-- {{ category.name }} -->
+                                            </a>
+                                        </li>
+                                        <!-- {% endif %}
                                             {% endfor %} -->
-                                        </ul>
-                                    </li>
-                                    <!-- {% endif %}
+                                    </ul>
+                                </li>
+                                <!-- {% endif %}
                                     {% endfor %} -->
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- {% endfor %} -->
-                    </div>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- {% endfor %} -->
                 </div>
             </div>
         </div>

@@ -30,10 +30,6 @@ p {
 }
 
 /* 全体 */
-.section-wrapper {
-    background-color: #87cefa;
-}
-
 .marker {
     background: linear-gradient(transparent 60%, #dc143c 90%);
     font-weight: bold;
@@ -67,9 +63,22 @@ p {
     text-align: end;
 }
 
+/* ---------- パンくずリスト ---------- */
+.bread {
+    margin-top: 0.5rem;
+    display: flex;
+}
+.breadcrumb {
+    background-color: #fff;
+}
+.breadcrumb-item + .breadcrumb-item::before { 
+    content: "\0bb" 
+}
+
 /* プロフィール欄 */
-.profile_card{
+.main_wrap{
     width: 60vw;
+    margin: 1rem auto;
 }
 .profile_table {
     width: 100%;
@@ -179,20 +188,6 @@ p {
     background-color: #f08080;
 }
 
-
-/* ---------- パンくずリスト ---------- */
-.breadcrumb {
-    background-color: #fff;
-}
-.breadcrumb-item + .breadcrumb-item::before { 
-    content: "\0bb" 
-}
-
-
-/* ---------- 質問検索欄 ---------- */
-/* .Qsearcher {
-    background-color: #fff;
-} */
 
 /* ---------- カテゴリ検索欄 ---------- */
 /* .category-item {
