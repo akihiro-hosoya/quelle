@@ -1,0 +1,29 @@
+{% extends 'forum/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+
+        <!-- ---------- ログイン欄 ---------- -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <h4 class="card-title text-center">Login</h4>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-label-group">
+                        {% render_field form.login class="form-control" placeholder="メールアドレス" %}
+                    </div>
+                    <div class="form-label-group">
+                        {% render_field form.password class="form-control" placeholder="パスワード" %}
+                    </div>
+                    <div class="button mx-auto mt-3">
+                        <button class="btn btn-info btn-block" type="submit">登録する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -77,7 +77,7 @@ p {
 }
 
 .profile_table .header {
-    width: 200px;
+    width: 15vw;
     padding: 20px;
     text-align: center;
     background-color: #CCFFFF;
@@ -92,9 +92,18 @@ p {
     width: 200px;
 }
 
+.form_wrap {
+    display: grid;
+    gap: 15px;
+}
 
+.form_wrap-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
 
-
+.form-control:focus {
+    box-shadow: none;
+}
 
 
 

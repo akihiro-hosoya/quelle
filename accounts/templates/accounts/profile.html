@@ -1,4 +1,5 @@
 {% extends 'forum/base.html' %}
+{% load widget_tweaks %}
 {% load static %}
 
 {% block bread %}
@@ -6,9 +7,7 @@
 <li class="breadcrumb-item">プロフィール</li>
 {% endblock %}
 
-
 {% block content %}
-<div class="container-fluid main-wrapper">
     <div class="row">
 
         <!-- ---------- プロフィール欄 ---------- -->
@@ -41,7 +40,7 @@
                     </tbody>
                 </table>
                 <div class="button mx-auto mt-3">
-                    <a href="#" class="btn btn-warning btn-block">編集する</a>
+                    <a href="{% url 'profile_edit' %}" class="btn btn-warning btn-block">編集する</a>
                 </div>
             </div>
         </div>
