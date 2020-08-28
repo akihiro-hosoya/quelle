@@ -1,0 +1,24 @@
+{% extends 'forum/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="row">
+
+        <!-- ---------- ログアウト欄 ---------- -->
+        <div class="card account_card mx-auto mt-3">
+            <div class="card-body">
+                <h4 class="card-title text-center">Logout</h4>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <p class="text-center">ログアウトしますか？</p>
+                    <div class="button mx-auto mt-3">
+                        <button class="btn btn-danger btn-block" type="submit">ログアウト</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

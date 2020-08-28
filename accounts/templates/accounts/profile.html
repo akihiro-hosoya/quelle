@@ -8,42 +8,36 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-
-        <!-- ---------- プロフィール欄 ---------- -->
-        <div class="col-12 mt-5">
-            <div class="">
-                <h4 class="mb-3 text-center">Your Profile</h4>
-                <hr>
-                <table class="profile_table">
-                    <tbody>
-                        <tr>
-                            <th class="header">名前</th>
-                            <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
-                        </tr>
-                        <tr>
-                            <th class="header">メールアドレス</th>
-                            <td class="data">{{ user_data.email }}</td>
-                        </tr>
-                        <tr>
-                            <th class="header">所属</th>
-                            <td class="data">{{ user_data.department }}</td>
-                        </tr>
-                        <tr>
-                            <th class="header">役職</th>
-                            <td class="data">{{ user_data.position }}</td>
-                        </tr>
-                        <tr>
-                            <th class="header">入会日</th>
-                            <td class="data">{{ user_data.created|date:"Y/n/j" }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="button mx-auto mt-3">
-                    <a href="{% url 'profile_edit' %}" class="btn btn-warning btn-block">編集する</a>
-                </div>
-            </div>
+    <!-- ---------- プロフィール欄 ---------- -->
+    <div class="profile_card mx-auto mt-5">
+        <h4 class="mb-3 text-center">Your Profile</h4>
+        <hr>
+        <table class="profile_table">
+            <tbody>
+                <tr>
+                    <th class="header">名前</th>
+                    <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
+                </tr>
+                <tr>
+                    <th class="header">メールアドレス</th>
+                    <td class="data">{{ user_data.email }}</td>
+                </tr>
+                <tr>
+                    <th class="header">所属</th>
+                    <td class="data">{{ user_data.department }}</td>
+                </tr>
+                <tr>
+                    <th class="header">役職</th>
+                    <td class="data">{{ user_data.position }}</td>
+                </tr>
+                <tr>
+                    <th class="header">入会日</th>
+                    <td class="data">{{ user_data.created|date:"Y/n/j" }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button mx-auto mt-3">
+            <a href="{% url 'profile_edit' %}" class="btn btn-warning btn-block">編集する</a>
         </div>
     </div>
-</div>
 {% endblock content %}

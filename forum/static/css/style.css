@@ -68,6 +68,9 @@ p {
 }
 
 /* プロフィール欄 */
+.profile_card{
+    width: 60vw;
+}
 .profile_table {
     width: 100%;
     border: 5px solid black;
@@ -75,38 +78,39 @@ p {
     border-collapse: collapse;
     overflow: hidden;
 }
-
 .profile_table .header {
     width: 15vw;
     padding: 20px;
     text-align: center;
     background-color: #CCFFFF;
 }
-
 .profile_table .data {
     padding: 20px;
     background-color: white;
 }
-
 .button {
     width: 200px;
+    margin-top: 1rem;
 }
 
 .form_wrap {
     display: grid;
     gap: 15px;
 }
-
 .form_wrap-2 {
     grid-template-columns: repeat(2, 1fr);
 }
-
 .form-control:focus {
     box-shadow: none;
 }
 
-
-
+.account_card {
+    width: 400px;
+    border: 0;
+}
+.form-label-group {
+    margin-bottom: 1rem;
+}
 
 
 
