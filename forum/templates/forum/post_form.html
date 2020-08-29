@@ -1,0 +1,116 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item active">投稿する</li>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+        <!-- ----- 質問フォーム ----- -->
+        <h3 class="text-center">投稿する</h3>
+            <hr>
+            <div>
+                <form method="POST" class="post-form">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="">タイトル</label>
+                        {% render_field form.title class="form-control" placeholder="" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="">カテゴリー</label>
+                        {% render_field form.category class="select form-control form-control-sm m-1" %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="">内容</label>
+                        {% render_field form.text class="form-control" %}
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit">確認する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <script>
+const largeCategoryElement = document.querySelector('#id_large_category');
+const middleCategoryElement = document.querySelector('#id_middle_category');
+const categoryElement = document.querySelector('#id_category');
+const categories = {
+    {% for middle in middlecategory_list %}
+        '{{ middle.pk }}': [
+        {% for category in middle.category_set.all %}
+        {
+        'pk': '{{ category.pk }}',
+        'name': '{{ category.name }}'
+        },
+        {% endfor %}
+        ],
+    {% endfor %}
+};
+const categories2 = {
+    {% for large in largecategory_list %}
+    '{{ large.pk }}': [
+        {% for category in large.middlecategory_set.all %}
+        {
+        'pk': '{{ category.pk }}',
+        'name': '{{ category.name }}'
+        },
+        {% endfor %}
+        ],
+    {% endfor %}
+};
+const changeCategory = (select) => {
+    const optionAll = document.querySelectorAll('#id_category option');
+    for (const option of optionAll) {
+        categoryElement.removeChild(option);
+    }
+    const middleId = middleCategoryElement.value;
+    const categoryList = categories[middleId];
+    for (const category of categoryList) {
+        const option = document.createElement("option")
+        option.value = category['pk'];
+        option.textContent = category['name'];
+        categoryElement.appendChild(option);
+    }
+    if (select !== undefined) {
+        categoryElement.value = select;
+    }
+};
+const changeCategory2 = (select) => {
+    const optionAll = document.querySelectorAll('#id_middle_category option');
+    for (const option of optionAll) {
+        middleCategoryElement.removeChild(option);
+    }
+    const largeId = largeCategoryElement.value;
+    const categoryList2 = categories2[largeId];
+    for (const category2 of categoryList2) {
+        const option2 = document.createElement("option")
+        option2.value = category2['pk'];
+        option2.textContent = category2['name'];
+        middleCategoryElement.appendChild(option2);
+    }
+    if (select !== undefined) {
+        middleCategoryElement.value = select;
+    }
+};
+middleCategoryElement.addEventListener('change', () => {
+    changeCategory();
+});
+largeCategoryElement.addEventListener('change', () => {
+    changeCategory2();
+    changeCategory();
+});
+if (middleCategoryElement.value) {
+    changeCategory(categoryElement.value);
+}
+if (largeCategoryElement.value) {
+    changeCategory2(middleCategoryElement.value);
+}
+</script> -->
+{% endblock content %}

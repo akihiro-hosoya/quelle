@@ -31,11 +31,11 @@ p {
 
 /* 全体 */
 .marker {
-    background: linear-gradient(transparent 60%, #dc143c 90%);
+    background: linear-gradient(transmiddle 60%, #dc143c 90%);
     font-weight: bold;
 }
 .marker-light {
-    background: linear-gradient(transparent 70%, #dc143c 90%);
+    background: linear-gradient(transmiddle 70%, #dc143c 90%);
     font-weight: bold;
 }
 
@@ -134,7 +134,7 @@ p {
 
 
 
-/* ---------- Search欄 ---------- */
+/* ---------- Search欄 ----------
 .fa-caret-right {
     float: right;
     margin-top: 0.3rem;
@@ -153,11 +153,11 @@ p {
     width: 190px;
     background: #EEE;
     visibility: hidden;
-    }		   
+    }		    */
 /* .dm_2nd_sub {
     position: relative;
     } */
-.dm_2nd_sub:hover .dm_3rd {
+/* .dm_2nd_sub:hover .dm_3rd {
     visibility: visible;
     }
 
@@ -173,12 +173,12 @@ p {
     width: 100%;
     background: #EEE;
     visibility: hidden;
-    }
+    } */
 /* .dm_3rd_sub {
     position: relative;
     } */
 
-.dm_4th {
+/* .dm_4th {
     position: absolute;
     top: 0;
     left: 190px;
@@ -189,7 +189,7 @@ p {
     }
 .dm_3rd_sub:hover .dm_4th {
     visibility: visible;
-    }
+    } */
 
 .dropdown-item a {
     display: block;

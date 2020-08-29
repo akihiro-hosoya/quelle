@@ -1,0 +1,25 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item"></li>
+<li class="breadcrumb-item"></li>
+<li class="breadcrumb-item"></li>
+<li class="breadcrumb-item active">質問内容</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <!-- ----- 質問詳細 ----- -->
+            <h3 class="text-center">質問内容</h3>
+            <hr>
+            <div>
+                <h5>{{ post.title }}</h5>
+                <p>{{ post.content|linebreaksbr }}</p>
+                <p>{{ post.created_date }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
