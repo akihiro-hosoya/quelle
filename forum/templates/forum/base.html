@@ -36,10 +36,13 @@
                     <ul class="navbar-nav">
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a href="{% url 'forum:news_list' %}" class="nav-link">NEWS</a>
+                            <a href="{% url 'news_list' %}" class="nav-link">NEWS</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'forum:post_new' %}" class="nav-link">POST</a>
+                            <a href="{% url 'post_new' %}" class="nav-link">POST</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'post_list' %}" class="nav-link">POSTS</a>
                         </li>
                         <li class="nav-item">
                             <a href="{% url 'profile' %}" class="nav-link">Profile</a>

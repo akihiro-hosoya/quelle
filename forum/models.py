@@ -31,6 +31,8 @@ class Category(models.Model):
     middle = models.ForeignKey(MiddleCategory, verbose_name='中カテゴリー', on_delete=models.PROTECT)
     small = models.ForeignKey(SmallCategory, verbose_name='小カテゴリー', on_delete=models.PROTECT)
 
+    def __str__(self):
+        return self.name
 # 投稿
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -41,7 +43,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     def get_absolute_url(self):
-        return reverse("forum:post_detail", kwargs={'pk':self.pk})
+        return reverse("post_detail", kwargs={'pk':self.pk})
 
     def __str__(self):
         return self.title

@@ -18,7 +18,7 @@
                 <div class="media">
                     <div class="media-body bg-white p-3">
                         <h5><a class="text-info font-weight-bold"
-                                href="{% url 'forum:news_detail' news.id %}">{{ news.title }}</a></h5>
+                                href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h5>
                         <p>{{ news.text|linebreaksbr|truncatechars:100 }}</p>
                         <p>{{ news.author }}　{{ news.created_date }}</p>
                     </div>

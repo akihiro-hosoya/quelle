@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import News, Post, LargeCategory, MiddleCategory, SmallCategory
+from .models import News, Post, LargeCategory, MiddleCategory, SmallCategory, Category
 from .forms import PostForm
 
 # Create your views here.
@@ -14,7 +14,15 @@ class IndexView(LoginRequiredMixin, View):
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        post_data = Post.objects.get(id=self.kwargs['pk'])
+        post_data = Post.objects.order_by("-id")
+        return render(request, 'forum/post_list.html', {
+            'post_data': post_data
+        })
+
+class CategoryView(View):
+    def get(self, request, *args, **kwargs):
+        category_data = Category.objects.get(name=self.kwargs['category'])
+        post_data = Post.objects.order_by('-id').filter(category=category_data)
         return render(request, 'forum/post_list.html', {
             'post_data': post_data
         })
@@ -42,11 +50,11 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
             post_data.text = form.cleaned_data['text']
-            # category = form.cleaned_data['category']
-            # category_data = Category.objects.all
-            # post_data.category = category_data
+            category = form.cleaned_data['category']
+            category_data = Category.objects.get(name=category)
+            post_data.category = category_data
             post_data.save()
-            return redirect('forum:post_detail', post_data.id)
+            return redirect('post_detail', post_data.id)
 
         return render(request, 'forum/post_form.html', {
             'form': form
