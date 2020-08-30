@@ -25,16 +25,16 @@ class SmallCategory(models.Model):
     def __str__(self):
         return self.name
 
-# class Category(models.Model):
-#     name = models.CharField('中カテゴリー', max_length=50)
-#     large = models.ForeignKey(LargeCategory, verbose_name='大カテゴリー', on_delete=models.PROTECT)
-#     middle = models.ForeignKey(MiddleCategory, verbose_name='中カテゴリー', on_delete=models.PROTECT)
-#     small = models.ForeignKey(SmallCategory, verbose_name='小カテゴリー', on_delete=models.PROTECT)
+class Category(models.Model):
+    name = models.CharField('カテゴリー', max_length=50)
+    large = models.ForeignKey(LargeCategory, verbose_name='大カテゴリー', on_delete=models.PROTECT)
+    middle = models.ForeignKey(MiddleCategory, verbose_name='中カテゴリー', on_delete=models.PROTECT)
+    small = models.ForeignKey(SmallCategory, verbose_name='小カテゴリー', on_delete=models.PROTECT)
 
 # 投稿
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT)
     title = models.CharField("タイトル", max_length=200)
     content = models.TextField("本文")
     created_date = models.DateTimeField("作成日", default=timezone.now)
