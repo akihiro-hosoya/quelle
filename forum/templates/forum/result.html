@@ -1,0 +1,81 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item active">「{{ keyword }}」の検索結果</li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <!-- ---------- 質問リスト ---------- -->
+        <div class="main-wrap">
+            <div>
+                <div class="">
+                    <div class="text-center">
+                        {% if keyword %}
+                            <h4 class="">「{{ keyword }}」の検索結果</h4>
+                        {% endif %}
+                        <hr>
+                    </div>
+                    <div>
+                        <p>検索結果：全{{ post_data.count }}件</p>
+                        <div class="medium">
+                            {% for post in post_data %}
+                            <div class="media">
+                                <div class="media-body">
+                                    <a href="{% url 'post_detail' pk=post.pk %}">
+                                        <h5>{{ post.title }}</h5>
+                                    </a>
+                                    <p>{{ post.content|linebreaksbr|truncatechars:100 }}</p>
+                                    <p class="">投稿者：{{ post.author }} {{ post.created_date }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <!-- カテゴリ一覧 -->
+        <div class="card">
+            <div class="card-header">
+                <h5>カテゴリ一覧</h5>
+            </div>
+            <div>
+                {% for large in large_list %}
+                <ul>
+                    <li>
+                        <span>{{ large.name }}</span>
+                        {% for middle in middle_list %}
+                        {% if middle.large.id == large.id %}
+                            <ul>
+                                <li>
+                                    <span>{{ middle.name }}</span>
+                                    {% for small in small_list %}
+                                    {% if small.middle.id == middle.id %}
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    {{ small.name }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    {% endif %}
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        {% endif %}
+                        {% endfor %}
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

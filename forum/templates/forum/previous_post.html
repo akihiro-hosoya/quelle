@@ -18,31 +18,23 @@
 
     <div class="col-12 mt-3">
         <!-- ---------- 質問リスト ---------- -->
-        <div class="main-wrap">
-            <div>
-                <div class="">
-                    <div class="text-center">
-                        <h4 class="mb-3">投稿一覧</h4>
-                        <hr>
-                    </div>
-                    <div>
-                        <div class="medium">
-                            {% for post in post_list %}
-                            <div class="media m-3 p-2">
-                                <div class="media-body">
-                                    <a class="d-block" href="{% url 'post_detail' pk=post.pk %}">
-                                        <h5 class="text-all font-weight-bold mt-0">{{ post.title }}</h5>
-                                    </a>
-                                    <p>{{ post.content|truncatechars:100 }}</p>
-                                    <p class="media-detail">
-                                        {{ post.author }} &nbsp;&nbsp;&nbsp; {{ post.created_date }}
-                                    </p>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
+        <div class="main_wrap">
+            <h4 class="mb-3">投稿一覧</h4>
+            <hr>
+            <div class="medium">
+                {% for post in post_list %}
+                <div class="media">
+                    <div class="media-body">
+                        <a class="d-block" href="{% url 'post_detail' pk=post.pk %}">
+                            <h5 class="mt-0">{{ post.title }}</h5>
+                        </a>
+                        <p>{{ post.content|truncatechars:100 }}</p>
+                        <p class="media-detail">
+                            {{ post.author }} &nbsp;&nbsp;&nbsp; {{ post.created_date }}
+                        </p>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

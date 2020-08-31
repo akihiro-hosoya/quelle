@@ -62,6 +62,12 @@
                 </div>
             </div>
         </div>
+        <div>
+            <form method="get" action="{% url 'search' %}" class="input-group">
+                <input type="text" class="form-control" name="keyword" placeholder="投稿を検索">
+                <button class="btn btn-primary" type="submit">検索</button>
+            </form>
+        </div>
     </nav>
 
     <div>
