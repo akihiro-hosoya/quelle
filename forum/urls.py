@@ -10,7 +10,10 @@ urlpatterns = [
     path('post/new/>', views.CreatePostView.as_view(), name='post_new'),
     path('post/<int:pk>/edit/>', views.PostEditView.as_view(), name='post_edit'),
     path('post/<int:pk>/delete/>', views.PostDeleteView.as_view(), name='post_delete'),
-    path('category/<str:category>/', views.CategoryView.as_view(), name='category'),
+    path('category/<str:largecategory>/<str:middlecategory>/<str:smallcategory>/', views.CategoryView.as_view(), name='category'),
     path('previous/post/', views.PreviousPostView.as_view(), name='previous_post'),
     path('search/', views.SearchView.as_view(), name='search'),
+    path('post/<int:pk>/comment/', views.post_comment, name='post_comment'),
+    path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
+    path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
 ]

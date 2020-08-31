@@ -15,3 +15,8 @@ class PostForm(forms.Form):
         widget=forms.Select,
         choices=list(category_choice.items())
         )
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)

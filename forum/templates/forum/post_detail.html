@@ -10,18 +10,39 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-12">
-            <!-- ----- 質問詳細 ----- -->
-            <h3 class="text-center">質問内容</h3>
-            <hr>
-            <div>
-                <h5>{{ post_data.title }}</h5>
-                <p>{{ post_data.content|linebreaksbr }}</p>
-                <p>{{ post_data.created_date }}</p>
-            </div>
-            <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
-            <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
+<div class="row">
+    <div class="col-12">
+        <!-- ----- 質問詳細 ----- -->
+        <h3 class="text-center">質問内容</h3>
+        <hr>
+        <div>
+            <h5>{{ post_data.title }}</h5>
+            <p>{{ post_data.content|linebreaksbr }}</p>
+            <p>{{ post_data.created_date }}</p>
         </div>
+        <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
+        <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>
     </div>
+    <hr>
+    <div>
+        <a class="btn btn-outline-info" href="{% url 'post_comment' pk=post_data.pk %}">Add comment</a>
+        {% for comment in post_data.comments.all %}
+            {% if user.is_authenticated or comment.approved_comment %}
+                <div>
+                    <div class="date">
+                        {{ comment.created_date }}
+                        {% if not comment.approved_comment %}
+                            <a class="btn btn-outline-danger" href="{% url 'comment_approve' pk=comment.pk %}"><span class="">Approve</span></a>
+                            <a class="btn btn-outline-success" href="{% url 'comment_remove' pk=comment.pk %}"><span class="">Reject</span></a>
+                        {% endif %}
+                    </div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>コメントがありません</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}

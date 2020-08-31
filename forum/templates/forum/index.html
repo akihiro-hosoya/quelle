@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block bread %}
-    <li class="active">index.html</li>
+<li class="active">Home</li>
 {% endblock %}
 
 {% block content %}
@@ -13,9 +13,41 @@
     <div class="row">
         <!-- ---------- カテゴリーから探す ---------- -->
         <div class="col-12">
-            <div class="card shadow">
-                <div class="card-header shadow-sm mb-2">
+            <div class="card">
+                <div class="card-header">
                     <h4><span class="marker">カテゴリーから探す</span></h4>
+                </div>
+                <div class="card-body">
+                    <!-- カテゴリ一覧 -->
+                    <div>
+                        {% for large in large_list %}
+                        <ul>
+                            <li>
+                                <span>{{ large.name }}</span>
+                                {% for middle in middle_list %}
+                                {% if middle.large.id == large.id %}
+                                <ul>
+                                    <li>
+                                        <span>{{ middle.name }}</span>
+                                        {% for small in small_list %}
+                                        {% if small.middle.id == middle.id %}
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    {{ small.name }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+                                {% endif %}
+                                {% endfor %}
+                            </li>
+                        </ul>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

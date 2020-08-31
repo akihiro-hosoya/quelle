@@ -3,7 +3,7 @@
 
 {% block bread %}
 <li class="breadcrumb-item"><a href="/">Home</a></li>
-<li class="breadcrumb-item active">post_list</li>
+<li class="breadcrumb-item active">投稿一覧</li>
 {% endblock %}
 
 {% block content %}
@@ -58,7 +58,7 @@
                                     {% if small.middle.id == middle.id %}
                                         <ul>
                                             <li>
-                                                <a href="#">
+                                                <a href="{% url 'category' large.name middle.name small.name %}">
                                                     {{ small.name }}
                                                 </a>
                                             </li>
