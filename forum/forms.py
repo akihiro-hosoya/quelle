@@ -1,5 +1,5 @@
 from django import forms
-from forum.models import Post, Category
+from forum.models import Post, Category, Comment
 from accounts.models import CustomUser
 
 class PostForm(forms.Form):

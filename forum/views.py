@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import News, Post, LargeCategory, MiddleCategory, SmallCategory, Category
+# , Comment
 from .forms import PostForm
+from accounts.models import CustomUser
+# , CommentForm
 
 # Create your views here.
 class IndexView(LoginRequiredMixin, View):
@@ -49,7 +52,7 @@ class CreatePostView(LoginRequiredMixin, View):
             post_data = Post()
             post_data.author = request.user
             post_data.title = form.cleaned_data['title']
-            post_data.text = form.cleaned_data['text']
+            post_data.content = form.cleaned_data['content']
             category = form.cleaned_data['category']
             category_data = Category.objects.get(name=category)
             post_data.category = category_data
@@ -116,4 +119,13 @@ class NewsDetailView(View):
         news_data = News.objects.get(id=self.kwargs['pk'])
         return render(request, 'forum/news_detail.html', {
             'news_data': news_data,
+        })
+
+class PreviousPostView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        user_data = CustomUser.objects.get(id=request.user.id)
+        post_list = Post.objects.filter(author=user_data).order_by('created_date')
+        return render(request, 'forum/previous_post.html', {
+            'user_data': user_data,
+            'post_list': post_list,
         })

@@ -3,9 +3,9 @@
 
 {% block bread %}
 <li class="breadcrumb-item"><a href="/">Home</a></li>
-<li class="breadcrumb-item"></li>
-<li class="breadcrumb-item"></li>
-<li class="breadcrumb-item"></li>
+<li class="breadcrumb-item">{{ post_data.category.large }}</li>
+<li class="breadcrumb-item">{{ post_data.category.middle }}</li>
+<li class="breadcrumb-item">{{ post_data.category.small }}</li>
 <li class="breadcrumb-item active">質問内容</li>
 {% endblock %}
 
@@ -20,8 +20,8 @@
                 <p>{{ post_data.content|linebreaksbr }}</p>
                 <p>{{ post_data.created_date }}</p>
             </div>
+            <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
+            <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>    
         </div>
-        <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
-        <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>
     </div>
 {% endblock content %}

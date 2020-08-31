@@ -8,36 +8,72 @@
 {% endblock %}
 
 {% block content %}
-    <!-- ---------- プロフィール欄 ---------- -->
-    <div class="main_wrap">
-        <h4 class="mb-3 text-center">Your Profile</h4>
-        <hr>
-        <table class="profile_table">
-            <tbody>
-                <tr>
-                    <th class="header">名前</th>
-                    <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
-                </tr>
-                <tr>
-                    <th class="header">メールアドレス</th>
-                    <td class="data">{{ user_data.email }}</td>
-                </tr>
-                <tr>
-                    <th class="header">所属</th>
-                    <td class="data">{{ user_data.department }}</td>
-                </tr>
-                <tr>
-                    <th class="header">役職</th>
-                    <td class="data">{{ user_data.position }}</td>
-                </tr>
-                <tr>
-                    <th class="header">入会日</th>
-                    <td class="data">{{ user_data.created|date:"Y/n/j" }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="button mx-auto mt-3">
-            <a href="{% url 'profile_edit' %}" class="btn btn-warning btn-block">編集する</a>
+<div class="row">
+    <!-- ---------- サイドメニュー ---------- -->
+    <div class="col-12">
+        <div class="list-group text-center">
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action active">登録情報の確認・変更</a>
+            <a href="{% url 'previous_post' %}" class="list-group-item list-group-item-action">投稿した質問</a>
         </div>
     </div>
+
+    <div class="col-12">
+        <!-- ---------- プロフィール欄 ---------- -->
+        <div class="main_wrap">
+            <h4 class="mb-3 text-center">Your Profile</h4>
+            <hr>
+            <table class="profile_table">
+                <tbody>
+                    <tr>
+                        <th class="header">名前</th>
+                        <td class="data">{{ user_data.first_name }} {{ user_data.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <th class="header">メールアドレス</th>
+                        <td class="data">{{ user_data.email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="header">所属</th>
+                        <td class="data">{{ user_data.department }}</td>
+                    </tr>
+                    <tr>
+                        <th class="header">役職</th>
+                        <td class="data">{{ user_data.position }}</td>
+                    </tr>
+                    <tr>
+                        <th class="header">入会日</th>
+                        <td class="data">{{ user_data.created|date:"Y/n/j" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button mx-auto mt-3">
+                <a href="{% url 'profile_edit' %}" class="btn btn-warning btn-block">編集する</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <!-- ---------- 過去投稿 ---------- -->
+        <div class="main_wrap">
+            <h4 class="mb-3 text-center">Your Posts</h4>
+            <hr>
+            <div>
+                <div class="medium">
+                    {% for post in post_data %}
+                    <div class="media">
+                        <div class="media-body">
+                            <a href="{% url 'forum:your_posts' %}">
+                                <h5>{{ post.title }}</h5>
+                            </a>
+                            <p>{{ post.content|linebreaksbr|truncatechars:100 }}</p>
+                            <p class="">投稿者：{{ post.author }} {{ post.created_date }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
 {% endblock content %}

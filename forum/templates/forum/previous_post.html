@@ -1,0 +1,50 @@
+{% extends 'forum/base.html' %}
+{% load static %}
+
+{% block bread %}
+<li class="breadcrumb-item"><a href="/">Home</a></li>
+<li class="breadcrumb-item active">post_list</li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- ---------- サイドメニュー ---------- -->
+    <div class="col-12">
+        <div class="list-group text-center">
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action">登録情報の確認・変更</a>
+            <a href="{% url 'previous_post' %}" class="list-group-item list-group-item-action active">投稿した質問</a>
+        </div>
+    </div>
+
+    <div class="col-12 mt-3">
+        <!-- ---------- 質問リスト ---------- -->
+        <div class="main-wrap">
+            <div>
+                <div class="">
+                    <div class="text-center">
+                        <h4 class="mb-3">投稿一覧</h4>
+                        <hr>
+                    </div>
+                    <div>
+                        <div class="medium">
+                            {% for post in post_list %}
+                            <div class="media m-3 p-2">
+                                <div class="media-body">
+                                    <a class="d-block" href="{% url 'post_detail' pk=post.pk %}">
+                                        <h5 class="text-all font-weight-bold mt-0">{{ post.title }}</h5>
+                                    </a>
+                                    <p>{{ post.content|truncatechars:100 }}</p>
+                                    <p class="media-detail">
+                                        {{ post.author }} &nbsp;&nbsp;&nbsp; {{ post.created_date }}
+                                    </p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
