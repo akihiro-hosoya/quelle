@@ -1,0 +1,24 @@
+{% extends 'forum/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="row">
+
+        <!-- ---------- 投稿削除 ---------- -->
+        <div class="card account_card mx-auto mt-3">
+            <div class="card-body">
+                <h4 class="card-title text-center">{{ post_data.title }}</h4>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <p class="text-center">本当に削除しますか？</p>
+                    <div class="button mx-auto mt-3">
+                        <button class="btn btn-danger btn-block" type="submit">削除する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

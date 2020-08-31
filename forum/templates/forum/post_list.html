@@ -48,23 +48,27 @@
                 {% for large in large_list %}
                 <ul>
                     <li>
-                        {{ large.name }}
+                        <span>{{ large.name }}</span>
                         {% for middle in middle_list %}
-                        <ul>
-                            <li>
-                                {{ middle.name }}
-                                {% for category in category_list %}
-                                    {% if category.middle == post_data.category.middle %}
-                                    <ul>
-                                        <li>
-                                            {{ category.small }}
-                                        </li>
-                                    </ul>
+                        {% if middle.large.id == large.id %}
+                            <ul>
+                                <li>
+                                    <span>{{ middle.name }}</span>
+                                    {% for small in small_list %}
+                                    {% if small.middle.id == middle.id %}
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    {{ small.name }}
+                                                </a>
+                                            </li>
+                                        </ul>
                                     {% endif %}
-                                {% endfor %}                
-                            </li>
-                        </ul>
-                        {% endfor %}        
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        {% endif %}
+                        {% endfor %}
                     </li>
                 </ul>
                 {% endfor %}

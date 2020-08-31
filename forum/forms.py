@@ -9,7 +9,7 @@ class PostForm(forms.Form):
         category_choice[category] = category
 
     title = forms.CharField(max_length=50, label='タイトル')
-    text = forms.CharField(label='内容', widget=forms.Textarea())
+    content = forms.CharField(label='内容', widget=forms.Textarea())
     category = forms.ChoiceField(
         label='カテゴリ',
         widget=forms.Select,

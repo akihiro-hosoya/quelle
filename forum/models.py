@@ -15,12 +15,14 @@ class LargeCategory(models.Model):
 
 class MiddleCategory(models.Model):
     name = models.CharField('中カテゴリー', max_length=30)
+    large = models.ForeignKey(LargeCategory, verbose_name='大カテゴリー', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name
 
 class SmallCategory(models.Model):
     name = models.CharField('小カテゴリー', max_length=30)
+    middle = models.ForeignKey(MiddleCategory, verbose_name='中カテゴリー', on_delete=models.PROTECT)
 
     def __str__(self):
         return self.name

@@ -21,5 +21,7 @@
                 <p>{{ post_data.created_date }}</p>
             </div>
         </div>
+        <a class="btn btn-warning mr-2" href="{% url 'post_edit' post_data.id %}">編集する</a>
+        <a class="btn btn-danger" href="{% url 'post_delete' post_data.id %}">削除する</a>
     </div>
 {% endblock content %}
