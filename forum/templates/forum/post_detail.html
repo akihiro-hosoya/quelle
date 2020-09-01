@@ -25,7 +25,9 @@
     </div>
     <hr>
     <div>
-        <a class="btn btn-outline-info" href="{% url 'post_comment' pk=post_data.pk %}">Add comment</a>
+        <h5>コメント</h5>
+        <p>全: {{ post_data.approved_comments.count }}件</p>
+        <a class="btn btn-outline-info" href="{% url 'post_comment' pk=post_data.pk %}">コメントする</a>
         {% for comment in post_data.comments.all %}
             {% if user.is_authenticated or comment.approved_comment %}
                 <div>
