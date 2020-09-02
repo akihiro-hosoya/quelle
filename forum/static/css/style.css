@@ -40,28 +40,32 @@ p {
 }
 
 /* ---------- Navigation ---------- */
-.navbar, .navbar-expand-lg {
+header {
     background-color: #6495ed;
-    /* border-bottom: solid 0.01rem white; */
 }
-.navbar-brand, .nav-link {
-    color: white;
-    font-family: 'Fredoka One', cursive;
+.nav-wrap {
+    display: grid;
+    grid-template-columns: 5% 30% 60% 5%;
+    grid-template-rows: 1fr 1fr;
 }
-.navbar-brand {
-    font-size: 25px;
-    position: absolute;
-    top: 0.5rem;
+.nav-title {
+    grid-column: 2;
+    grid-row: 1/3;
 }
-.navbar-toggler {
-    border: solid 0.5px white;
+.nav-list {
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-around;
 }
-.fa-bars {
-    color: white;
+.nav-item {
 }
-.N-items {
-    text-align: end;
+.nav-search {
+    grid-column: 3;
+    grid-row: 2;
+    padding: ;
 }
+
 
 /* ---------- パンくずリスト ---------- */
 .bread {
@@ -87,7 +91,7 @@ p {
 
 /* プロフィール欄 */
 .main_wrap{
-    width: 60vw;
+    width: 75vw;
     margin: 1rem auto;
 }
 .profile_table {

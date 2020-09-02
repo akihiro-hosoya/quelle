@@ -9,17 +9,17 @@
 {% block content %}
 <div class="row">
     <!-- ---------- サイドメニュー ---------- -->
-    <div class="col-12">
+    <div class="col-12 col-lg-4">
         <div class="list-group text-center">
             <a href="{% url 'profile' %}" class="list-group-item list-group-item-action">登録情報の確認・変更</a>
             <a href="{% url 'previous_post' %}" class="list-group-item list-group-item-action active">投稿した質問</a>
         </div>
     </div>
 
-    <div class="col-12 mt-3">
+    <div class="col-12 col-lg-8">
         <!-- ---------- 質問リスト ---------- -->
         <div class="main_wrap">
-            <h4 class="mb-3">投稿一覧</h4>
+            <h4 class="mb-3 text-center">投稿一覧</h4>
             <hr>
             <div class="medium">
                 {% for post in post_list %}

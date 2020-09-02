@@ -20,48 +20,57 @@
 </head>
 
 <body>
-    <!-- ---------- Navigation ---------- -->
-    <header>
-        <div class="nav-wrap">
-            <div class="nav-title">
-                <a href="/">
-                    <h3>Quelle</h3>
-                </a>
+    <div class="nav-wrap">
+        <!-- ---------- Navigation ---------- -->
+        <nav class="navbar navbar-expand-md sticky-top nav-wrap">
+            <a class="navbar-brand" href="/">
+                <h3>Quelle</h3>
+            </a>
+            <div class="flex-fill">
+                <div class="N-items">
+                    <button class="navbar-toggler my-1 shadow" type="button" data-toggle="collapse"
+                        data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarToggler">
+                        <ul class="navbar-nav">
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a href="{% url 'news_list' %}" class="nav-link">NEWS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'post_new' %}" class="nav-link">POST</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'post_list' %}" class="nav-link">POSTS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'profile' %}" class="nav-link">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a href="{% url 'account_signup' %}" class="nav-link">Signup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'account_login' %}" class="nav-link">Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <div>
+                            <form method="get" action="{% url 'search' %}" class="input-group">
+                                <input type="text" class="form-control" name="keyword" placeholder="投稿を検索">
+                                <button class="btn btn-primary" type="submit">検索</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul class="nav-list">
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a href="{% url 'news_list' %}" class="">NEWS</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'post_new' %}" class="">POST</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a href="{% url 'post_list' %}" class="">POSTS</a>
-                </li> -->
-                <li class="nav-item">
-                    <a href="{% url 'profile' %}" class="">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'account_logout' %}" class="">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a href="{% url 'account_signup' %}" class="">Signup</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'account_login' %}" class="">Login</a>
-                </li>
-                {% endif %}
-            </ul>
-        </div>
-        <div>
-            <form method="get" action="{% url 'search' %}" class="input-group">
-                <input type="text" class="form-control" name="keyword" placeholder="投稿を検索">
-                <button class="btn btn-primary" type="submit">検索</button>
-            </form>
-        </div>
-    </header>
+        </nav>
+    </div>
 
     <div>
         <ul class="bread">
