@@ -15,7 +15,9 @@ main {
     flex: 1;
 }
 
-ul {
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
     list-style: none;
 }
 
@@ -56,7 +58,8 @@ header {
     grid-column: 3;
     grid-row: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 0;
 }
 .nav-item {
 }

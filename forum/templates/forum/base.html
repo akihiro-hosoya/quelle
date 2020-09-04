@@ -21,7 +21,7 @@
 
 <body>
     <!-- ---------- Navigation ---------- -->
-    <header>
+    <header class="pt-1">
         <div class="nav-wrap">
             <div class="nav-title">
                 <a href="/">
@@ -30,28 +30,28 @@
             </div>
             <ul class="nav-list">
                 {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a href="{% url 'news_list' %}" class="">NEWS</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'post_new' %}" class="">POST</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a href="{% url 'post_list' %}" class="">POSTS</a>
-                </li> -->
-                <li class="nav-item">
-                    <a href="{% url 'profile' %}" class="">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'account_logout' %}" class="">Logout</a>
-                </li>
+                    <li class="nav-item">
+                        <a href="{% url 'news_list' %}" class="">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'post_new' %}" class="">POST</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a href="{% url 'post_list' %}" class="">POSTS</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="{% url 'profile' %}" class="">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="">Logout</a>
+                    </li>
                 {% else %}
-                <li class="nav-item">
-                    <a href="{% url 'account_signup' %}" class="">Signup</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{% url 'account_login' %}" class="">Login</a>
-                </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_login' %}" class="">Login</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>
