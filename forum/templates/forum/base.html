@@ -10,8 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
@@ -20,16 +19,17 @@
 </head>
 
 <body>
-    <!-- ---------- Navigation ---------- -->
-    <header class="pt-1">
-        <div class="nav-wrap">
-            <div class="nav-title">
-                <a href="/">
-                    <h3>Quelle</h3>
-                </a>
-            </div>
-            <ul class="nav-list">
-                {% if user.is_authenticated %}
+    <div class="all">
+        <!-- ---------- Navigation ---------- -->
+        <header>
+            <div class="nav-wrap row pt-1">
+                <div class="nav-title col-12 col-md-4">
+                    <a href="/">
+                        <h3>Quelle</h3>
+                    </a>
+                </div>
+                <ul class="nav-list col-12 col-md-8 d-flex justify-content-around align-items-center">
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a href="{% url 'news_list' %}" class="">NEWS</a>
                     </li>
@@ -37,78 +37,73 @@
                         <a href="{% url 'post_new' %}" class="">POST</a>
                     </li>
                     <!-- <li class="nav-item">
-                        <a href="{% url 'post_list' %}" class="">POSTS</a>
-                    </li> -->
+                            <a href="{% url 'post_list' %}" class="">POSTS</a>
+                        </li> -->
                     <li class="nav-item">
                         <a href="{% url 'profile' %}" class="">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'account_logout' %}" class="">Logout</a>
                     </li>
-                {% else %}
+                    {% else %}
                     <li class="nav-item">
                         <a href="{% url 'account_signup' %}" class="">Signup</a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'account_login' %}" class="">Login</a>
                     </li>
-                {% endif %}
-            </ul>
-        </div>
-        <div>
-            <form method="get" action="{% url 'search' %}" class="input-group">
-                <input type="text" class="form-control" name="keyword" placeholder="投稿を検索">
+                    {% endif %}
+                </ul>
+            </div>
+        </header>
+
+        <div class="search mt-1 col-12">
+            <form method="get" action="{% url 'search' %}" class="input-group right">
+                <input type="text" class="" name="keyword" placeholder="投稿を検索">
                 <button class="btn btn-primary" type="submit">検索</button>
             </form>
         </div>
-    </header>
 
-    <div>
-        <ul class="bread">
-            {% block bread %}
-            {% endblock bread %}
-        </ul>
-    </div>
+        <main>
+            <div class="container">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
 
-    <main>
-        <div class="container">
-            {% block content %}
-            {% endblock content %}
-        </div>
-    </main>
-
-    <!-- ---------- Footer ---------- -->
-    <footer>
-        <div class="footer-wrapper mt-4 pt-4">
-            <div class="container-fluid padding">
-                <div class="row">
-                    <!-- ページ -->
-                    <div class="col-sm-6">
-                        <div class="page-intro">
-                            <h5>Pages</h5>
-                            <p><a class="d-block" href="/">Home</a></p>
+        <!-- ---------- Footer ---------- -->
+        <footer>
+            <div class="footer-wrapper mt-4 pt-4">
+                <div class="container-fluid padding">
+                    <div class="row">
+                        <!-- ページ -->
+                        <div class="col-sm-6">
+                            <div class="page-intro">
+                                <h5>Pages</h5>
+                                <p><a class="d-block" href="/">Home</a></p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- 固定ページ -->
-                    <div class="col-sm-6">
-                        <div class="about-intro">
-                            <h5>About</h5>
-                            <a class="my-2 d-block" href="#"><span><i class="fab fa-github-square"></i></span>
-                                Github</a>
+                        <!-- 固定ページ -->
+                        <div class="col-sm-6">
+                            <div class="about-intro">
+                                <h5>About</h5>
+                                <a class="my-2 d-block" href="#"><span><i class="fab fa-github-square"></i></span>
+                                    Github</a>
+                            </div>
                         </div>
-                    </div>
-                    <!-- コピーライト系 -->
-                    <div class="col-12 my-1">
-                        <div class="copy-w">
-                            <h3>Quelle</h3>
-                            <p class="mb-1">知識共有サイト</p>
-                            <p>&copy; Quelle</p>
+                        <!-- コピーライト系 -->
+                        <div class="col-12 my-1">
+                            <div class="copy-w">
+                                <h3>Quelle</h3>
+                                <p class="mb-1">知識共有サイト</p>
+                                <p>&copy; Quelle</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->

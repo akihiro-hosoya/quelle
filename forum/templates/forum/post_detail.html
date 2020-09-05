@@ -1,13 +1,13 @@
 {% extends 'forum/base.html' %}
 {% load static %}
 
-{% block bread %}
-<li class="breadcrumb-item"><a href="/">Home</a></li>
-<li class="breadcrumb-item">{{ post_data.category.large }}</li>
-<li class="breadcrumb-item">{{ post_data.category.middle }}</li>
-<li class="breadcrumb-item">{{ post_data.category.small }}</li>
-<li class="breadcrumb-item active">質問内容</li>
-{% endblock %}
+<ul>
+    <li class=""><a href="/">Home</a></li>
+    <li class="">{{ post_data.category.large }}</li>
+    <li class="">{{ post_data.category.middle }}</li>
+    <li class="">{{ post_data.category.small }}</li>
+    <li class="">質問内容</li>
+</ul>
 
 {% block content %}
 <div class="row">
@@ -29,21 +29,23 @@
         <p>全: {{ post_data.approved_comments.count }}件</p>
         <a class="btn btn-outline-info" href="{% url 'post_comment' pk=post_data.pk %}">コメントする</a>
         {% for comment in post_data.comments.all %}
-            {% if user.is_authenticated or comment.approved_comment %}
-                <div>
-                    <div class="date">
-                        {{ comment.created_date }}
-                        {% if not comment.approved_comment %}
-                            <a class="btn btn-outline-danger" href="{% url 'comment_approve' pk=comment.pk %}"><span class="">Approve</span></a>
-                            <a class="btn btn-outline-success" href="{% url 'comment_remove' pk=comment.pk %}"><span class="">Reject</span></a>
-                        {% endif %}
-                    </div>
-                    <strong>{{ comment.author }}</strong>
-                    <p>{{ comment.text|linebreaks }}</p>
-                </div>
-            {% endif %}
+        {% if user.is_authenticated or comment.approved_comment %}
+        <div>
+            <div class="date">
+                {{ comment.created_date }}
+                {% if not comment.approved_comment %}
+                <a class="btn btn-outline-danger" href="{% url 'comment_approve' pk=comment.pk %}"><span
+                        class="">Approve</span></a>
+                <a class="btn btn-outline-success" href="{% url 'comment_remove' pk=comment.pk %}"><span
+                        class="">Reject</span></a>
+                {% endif %}
+            </div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+        {% endif %}
         {% empty %}
-            <p>コメントがありません</p>
+        <p>コメントがありません</p>
         {% endfor %}
     </div>
 </div>

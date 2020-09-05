@@ -17,13 +17,13 @@ main {
 
 dl, ol, ul {
     margin-top: 0;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     list-style: none;
 }
 
 a {
     text-decoration: none;
-    color: #;
+    color: #000;
     display: block;
 }
 
@@ -40,46 +40,40 @@ p {
     background: linear-gradient(transmiddle 70%, #dc143c 90%);
     font-weight: bold;
 }
+.all {
+    padding: auto;
+    width: 100%;
+}
+header, main, footer {
+    width: ;
+}
 
-/* ---------- Navigation ---------- */
-header {
+header, footer {
     background-color: #6495ed;
 }
+
+/* ---------- Navigation ---------- */
 .nav-wrap {
-    display: grid;
-    grid-template-columns: 5% 30% 60% 5%;
-    grid-template-rows: 1fr 1fr;
+    margin: auto;
 }
-.nav-title {
-    grid-column: 2;
-    grid-row: 1/3;
+.nav-title h3 {
+    color: #fff;
 }
-.nav-list {
-    grid-column: 3;
-    grid-row: 1;
+.nav-item a {
+    color: #fff;
+    padding-left: 0.5em;
+}
+.search {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0;
-}
-.nav-item {
-}
-.nav-search {
-    grid-column: 3;
-    grid-row: 2;
-    padding: ;
+    justify-content: end;
 }
 
-
-/* ---------- パンくずリスト ---------- */
-.bread {
-    margin-top: 0.5rem;
-    display: flex;
+/* Index */
+.dropdown-item a {
+    display: block;
 }
-.breadcrumb {
-    background-color: #fff;
-}
-.breadcrumb-item + .breadcrumb-item::before { 
-    content: "\0bb" 
+.dropdown-item:hover {
+    background-color: #f08080;
 }
 
 /* News */
@@ -129,7 +123,6 @@ header {
 .form-control:focus {
     box-shadow: none;
 }
-
 .account_card {
     width: 400px;
     border: 0;
@@ -138,76 +131,8 @@ header {
     margin-bottom: 1rem;
 }
 
-
-
-
-/* ---------- Search欄 ----------
-.fa-caret-right {
-    float: right;
-    margin-top: 0.3rem;
-}
-
-.dm_1st_sub {
-    color: #fff;
-}
-.dm_1st_sub:hover {
-    color: #00008b;
-}
-
-.dm_2nd {
-    position: absolute;
-    height: 230px;
-    width: 190px;
-    background: #EEE;
-    visibility: hidden;
-    }		    */
-/* .dm_2nd_sub {
-    position: relative;
-    } */
-/* .dm_2nd_sub:hover .dm_3rd {
-    visibility: visible;
-    }
-
-.dm_1st:hover .dm_2nd {
-    visibility: visible; 
-    }
-
-.dm_3rd {
-    position: absolute;
-    top: 0;
-    left: 190px;
-    height: 230px;
-    width: 100%;
-    background: #EEE;
-    visibility: hidden;
-    } */
-/* .dm_3rd_sub {
-    position: relative;
-    } */
-
-/* .dm_4th {
-    position: absolute;
-    top: 0;
-    left: 190px;
-    height: 230px;
-    width: 120%;
-    background: #EEE;
-    visibility: hidden;
-    }
-.dm_3rd_sub:hover .dm_4th {
-    visibility: visible;
-    } */
-
-.dropdown-item a {
-    display: block;
-}
-.dropdown-item:hover {
-    background-color: #f08080;
-}
-
-
 /* ---------- カテゴリ検索欄 ---------- */
-/* .category-item {
+.category-item {
     text-align: center;
 }
 .card-img-top {
@@ -241,12 +166,12 @@ header {
 
 .c_dm_1:hover .c_dm_2 {
     visibility: visible;
-} */
+}
 
 /* .c_dm_2_sub {
     position: relative;
 } */
-/* 
+
 .c_dm_3 {
     position: absolute;
     top: 0;
@@ -267,7 +192,7 @@ header {
 
 .category-icon-other:hover {
     text-decoration: none;
-} */
+}
 
 
 
