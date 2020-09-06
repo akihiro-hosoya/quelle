@@ -20,97 +20,76 @@
 </head>
 
 <body>
-    <div class="nav-wrap">
+    <div class="all">
         <!-- ---------- Navigation ---------- -->
-        <nav class="navbar navbar-expand-md sticky-top nav-wrap">
-            <a class="navbar-brand" href="/">
-                <h3>Quelle</h3>
-            </a>
-            <div class="flex-fill">
-                <div class="N-items">
-                    <button class="navbar-toggler my-1 shadow" type="button" data-toggle="collapse"
-                        data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="collapse navbar-collapse d-md-flex justify-content-end" id="navbarToggler">
-                        <ul class="navbar-nav">
-                            {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a href="{% url 'news_list' %}" class="nav-link">NEWS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'post_new' %}" class="nav-link">POST</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'post_list' %}" class="nav-link">POSTS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'profile' %}" class="nav-link">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'account_logout' %}" class="nav-link">Logout</a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item">
-                                <a href="{% url 'account_signup' %}" class="nav-link">Signup</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'account_login' %}" class="nav-link">Login</a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                        <div>
-                            <form method="get" action="{% url 'search' %}" class="input-group">
-                                <input type="text" class="form-control" name="keyword" placeholder="投稿を検索">
-                                <button class="btn btn-primary" type="submit">検索</button>
-                            </form>
+        <header>
+            <div class="nav-wrap row pt-1">
+                <div class="nav-title col-12 col-md-4">
+                    <a href="/">
+                        <h3>Quelle</h3>
+                    </a>
+                </div>
+                <ul class="nav-list col-12 col-md-8 d-flex justify-content-around align-items-center">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'news_list' %}" class="">NEWS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'post_new' %}" class="">POST</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                            <a href="{% url 'post_list' %}" class="">POSTS</a>
+                        </li> -->
+                    <li class="nav-item">
+                        <a href="{% url 'profile' %}" class="">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_logout' %}" class="">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'account_signup' %}" class="">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'account_login' %}" class="">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </header>
+
+        <div class="search mt-1 col-12">
+            <form method="get" action="{% url 'search' %}" class="input-group right">
+                <input type="text" class="" name="keyword" placeholder="投稿を検索">
+                <button class="btn btn-primary" type="submit">検索</button>
+            </form>
+        </div>
+
+        <main>
+            <div class="container">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
+
+        <!-- ---------- Footer ---------- -->
+        <footer>
+            <div class="footer-wrapper mt-1 pt-2">
+                <div class="container-fluid padding">
+                    <div class="row">
+                        <!-- コピーライト系 -->
+                        <div class="col-12">
+                            <div class="copy-w">
+                                <h3>Quelle</h3>
+                                <p class="mb-1">知識共有サイト</p>
+                                <p>&copy; Quelle</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </nav>
+        </footer>
     </div>
-
-    <main>
-        <div class="container">
-            {% block content %}
-            {% endblock content %}
-        </div>
-    </main>
-
-    <!-- ---------- Footer ---------- -->
-    <footer>
-        <div class="footer-wrapper mt-4 pt-4">
-            <div class="container-fluid padding">
-                <div class="row">
-                    <!-- ページ -->
-                    <div class="col-sm-6">
-                        <div class="page-intro">
-                            <h5>Pages</h5>
-                            <p><a class="d-block" href="/">Home</a></p>
-                        </div>
-                    </div>
-                    <!-- 固定ページ -->
-                    <div class="col-sm-6">
-                        <div class="about-intro">
-                            <h5>About</h5>
-                            <a class="my-2 d-block" href="#"><span><i class="fab fa-github-square"></i></span>
-                                Github</a>
-                        </div>
-                    </div>
-                    <!-- コピーライト系 -->
-                    <div class="col-12 my-1">
-                        <div class="copy-w">
-                            <h3>Quelle</h3>
-                            <p class="mb-1">知識共有サイト</p>
-                            <p>&copy; Quelle</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->

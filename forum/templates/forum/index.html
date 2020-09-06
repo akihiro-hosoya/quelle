@@ -3,86 +3,82 @@
 
 {% block content %}
 <!-- ---------- 質問検索欄 ---------- -->
-<div class="main_wrap">
-    <h2 class="text-center">質問を探す</h2>
-    <hr>
-    <div class="row">
-        <!-- ---------- カテゴリーから探す ---------- -->
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4><span class="marker">カテゴリーから探す</span></h4>
-                </div>
-                <div class="card-body">
-                    <!-- カテゴリ一覧 -->
-                    <div class="row no-gutters d-flex justify-content-around">
-                        {% for large in large_list %}
-                        <ul class="col-5 col-md-3 mr-2 mt-2">
-                            <li class="category-icon c_dm_1">
-                                <div class="card c_dm_1_sub">
-                                    <i class="card-img-top mt-3">{{large.icon}}</i>
-                                    <div class="card-body p-2">
-                                        <p class="card-text category-name1">{{ large.name }}</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-center">
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <ul class="flex-column c_dm_2">
-                                    {% for middle in middle_list %}
-                                    {% if middle.large.id == large.id %}
-                                    <li class="c_dm_2_sub">
-                                        <button class="dropdown-item">
-                                            <span>{{ middle.name }}</span><i class="fas fa-caret-right"></i>
-                                        </button>
-                                        <ul class="flex-column c_dm_3">
-                                            {% for small in small_list %}
-                                            {% if small.middle.id == middle.id %}
-                                            <li class="dropdown-item">
-                                                <a href="{% url 'category' large.name middle.name small.name %}">
-                                                    {{ small.name }}
-                                                </a>
-                                            </li>
-                                            {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                    {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        </ul>
-                        {% endfor %}
+<div class="main_wrap row">
+    <div class="col-12 col-lg-8">
+        <h2 class="text-center">質問を探す</h2>
+        <hr>
+        <div class="row">
+            <!-- ---------- カテゴリーから探す ---------- -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4><span class="marker">カテゴリーから探す</span></h4>
                     </div>
-                    <div class="card">
-                        {% for large in large_list %}
-                        <ul>
-                            <li>
-                                <span>{{ large.name }}</span>
-                                {% for middle in middle_list %}
-                                {% if middle.large.id == large.id %}
-                                <ul>
-                                    <li>
-                                        <span>{{ middle.name }}</span>
-                                        {% for small in small_list %}
-                                        {% if small.middle.id == middle.id %}
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    {{ small.name }}
-                                                </a>
-                                            </li>
-                                        </ul>
+                    <div class="card-body">
+                        <!-- カテゴリ一覧 -->
+                        <div class="row no-gutters d-flex justify-content-around">
+                            {% for large in large_list %}
+                            <ul class="col-12 col-sm-5 col-md-3 mr-2 mt-2">
+                                <li class="category-icon c_dm_1">
+                                    <div class="card c_dm_1_sub">
+                                        <i class="card-img-top {{large.icon}} mt-3"></i>
+                                        <div class="card-body p-2">
+                                            <p class="card-text category-name1">{{ large.name }}</p>
+                                        </div>
+                                        <div class="card-footer d-flex justify-content-center">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </div>
+                                    </div>
+                                    <ul class="flex-column c_dm_2">
+                                        {% for middle in middle_list %}
+                                        {% if middle.large.id == large.id %}
+                                        <li class="c_dm_2_sub">
+                                            <button class="dropdown-item">
+                                                <span>{{ middle.name }}</span><i class="fas fa-caret-right"></i>
+                                            </button>
+                                            <ul class="flex-column c_dm_3">
+                                                {% for small in small_list %}
+                                                {% if small.middle.id == middle.id %}
+                                                <li class="dropdown-item">
+                                                    <a href="{% url 'category' large.name middle.name small.name %}">
+                                                        {{ small.name }}
+                                                    </a>
+                                                </li>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
                                         {% endif %}
                                         {% endfor %}
-                                    </li>
-                                </ul>
-                                {% endif %}
-                                {% endfor %}
-                            </li>
-                        </ul>
-                        {% endfor %}
+                                    </ul>
+                                </li>
+                            </ul>
+                            {% endfor %}
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 最新NEWS -->
+    <div class="col-12 col-lg-4">
+        <div class="mt-3">
+            <h3 class="text-center">新着情報</h3>
+            <hr>
+            <div class="">
+                <div class="medium">
+                    {% for news in news_list %}
+                    <div class="media p-2 btn-outline-info bg-white">
+                        <a class="text-dark d-flex justify-content-start" href="#">
+                            <div class="media-body">
+                                <h5 class="text-info font-weight-bold mt-0">{{ news.title }}</h5>
+                                <p>{{ news.text|linebreaksbr|truncatechars:100 }}</p>
+                                <p class="media-detail text-right m-0 font-weight-light">
+                                    投稿日時：{{ news.created_date }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
