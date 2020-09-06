@@ -8,7 +8,7 @@ html {
     height: 100%;
 }
 body {
-    background: #F1F1F1;
+    background: #e3f7ff;
     display: flex;
     flex-flow: column;
     min-height: 100vh;
@@ -30,8 +30,9 @@ a {
     display: block;
 }
 
-p {
+h1, h2, h3, h4, h5, h6, p {
     line-height: 1em;
+    font-family: 'Fredoka One', cursive;
 }
 
 /* 全体 */
@@ -53,6 +54,7 @@ header, main, footer {
 
 header, footer {
     background-color: #6495ed;
+    font-family: 'Fredoka One', cursive;
 }
 
 /* ---------- Navigation ---------- */
@@ -66,10 +68,6 @@ header, footer {
     color: #fff;
     padding-left: 0.5em;
 }
-.search {
-    display: flex;
-    justify-content: end;
-}
 
 /* Index */
 .dropdown-item a {
@@ -80,12 +78,17 @@ header, footer {
 }
 
 /* News */
-.post_header {
+.post_detail {
     display: grid;
     justify-content: end;
 }
-.post_header p {
+.post_detail p {
     margin: 0.2rem;
+}
+.news {
+    border: solid #fff 1px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 
@@ -96,7 +99,7 @@ header, footer {
 }
 .profile_table {
     width: 100%;
-    border: 5px solid black;
+    border: 1px solid black;
     border-radius: 1rem;
     border-collapse: collapse;
     overflow: hidden;
@@ -135,6 +138,10 @@ header, footer {
 }
 
 /* ---------- カテゴリ検索欄 ---------- */
+.category-card {
+    border: solid 1px #fff;
+    border-radius: 10px;
+}
 .category-item {
     text-align: center;
 }
@@ -212,25 +219,20 @@ header, footer {
 }
 
 /* 回答 */
-.C-icon {
-    font-size: 3rem;
-}
-
 .media-detail {
     font-size: 12px;
 }
+.comments {
+    border: solid #fff 1px;
+    border-radius: 10px;
+    background-color: #fff;
+}
 
 /* ---------- 質問リスト ---------- */
-.all-bgc {
-    background-color: #f08080;
+.posts{
+    border: #fff solid 1px;
+    border-radius: 10px;
 }
-.text-all {
-    color: #f08080;
-}
-.fa-comment {
-    transform: scale(-1, 1);
-}
-
 
 /* ---------- ページネーション ----------- */
 .previous::before {
@@ -250,18 +252,11 @@ footer {
     width: 90%;
     margin: 0 auto;
 }
-.page-intro, .about-intro, .copy-w {
-    text-align: center;
-    color: #fff;
-}
-.page-intro a, .about-intro a, .copy-w a {
-    color: #fff;
-    display: block;
-}
-.page-intro a:hover, .about-intro a:hover, .copy-w a:hover {
-    color: #00008b;
-    text-decoration: none;
-}
 .copy-w {
     text-align: center;
+    color: #fff;
+}
+.copy-w a {
+    color: #fff;
+    display: block;
 }

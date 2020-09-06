@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
+<div class="row main_wrap">
     <div class="col-12 col-lg-8">
         <!-- ---------- 質問リスト ---------- -->
         <div class="main-wrap">
             <div>
-                <div class="">
+                <div class="mb-5">
                     <div class="text-center">
                         <h4 class="mb-3">投稿一覧</h4>
                         <hr>
@@ -16,13 +16,15 @@
                         <p>検索結果：全{{ post_data.count }}件</p>
                         <div class="medium">
                             {% for post in post_data %}
-                            <div class="media">
+                            <div class="media posts p-2 bg-white shadow">
                                 <div class="media-body">
                                     <a href="{% url 'post_detail' pk=post.pk %}">
-                                        <h5>{{ post.title }}</h5>
+                                        <h5 class="text-primary">{{ post.title }}</h5>
                                     </a>
                                     <p>{{ post.content|linebreaksbr|truncatechars:100 }}</p>
-                                    <p class="">投稿者：{{ post.author }} {{ post.created_date }}</p>
+                                    <div class="media-detail post_detail">
+                                        <p class="">投稿者：{{ post.author }}<br>{{ post.created_date }}</p>    
+                                    </div>
                                 </div>
                             </div>
                             {% endfor %}
@@ -35,38 +37,44 @@
 
     <div class="col-12 col-lg-4">
         <!-- カテゴリ一覧 -->
-        <div class="card">
-            <div class="card-header">
-                <h5>カテゴリ一覧</h5>
+        <div class="mb-5">
+            <div class="text-center">
+                <h4>Categories</h4>
             </div>
-            <div>
-                {% for large in large_list %}
-                <ul>
-                    <li>
-                        <span>{{ large.name }}</span>
-                        {% for middle in middle_list %}
-                        {% if middle.large.id == large.id %}
-                            <ul>
-                                <li>
-                                    <span>{{ middle.name }}</span>
-                                    {% for small in small_list %}
-                                    {% if small.middle.id == middle.id %}
-                                        <ul>
-                                            <li>
-                                                <a href="{% url 'category' large.name middle.name small.name %}">
-                                                    {{ small.name }}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    {% endif %}
-                                    {% endfor %}
-                                </li>
-                            </ul>
-                        {% endif %}
-                        {% endfor %}
-                    </li>
-                </ul>
-                {% endfor %}
+            <hr>
+            <div class="category-card bg-white p-3 shadow">
+                <div class="">
+                    {% for large in large_list %}
+                    <ul>
+                        <li>
+                            <h4 class="text-info">{{ large.name }}</h4>
+                            {% for middle in middle_list %}
+                            {% if middle.large.id == large.id %}
+                                <ul>
+                                    <li>
+                                        <h5 class="text-secondary">{{ middle.name }}</h5>
+                                        {% for small in small_list %}
+                                        {% if small.middle.id == middle.id %}
+                                            <ul>
+                                                <li class="dropdown-item">
+                                                    <h6>
+                                                        <a href="{% url 'category' large.name middle.name small.name %}">
+                                                            {{ small.name }}
+                                                        </a>    
+                                                    </h6>
+                                                </li>
+                                            </ul>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+                            {% endif %}
+                            {% endfor %}
+                        </li>
+                    </ul>
+                    <hr>
+                    {% endfor %}    
+                </div>
             </div>
         </div>
     </div>

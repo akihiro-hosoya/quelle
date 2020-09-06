@@ -57,14 +57,7 @@
                 </ul>
             </div>
         </header>
-
-        <div class="search mt-1 col-12">
-            <form method="get" action="{% url 'search' %}" class="input-group right">
-                <input type="text" class="" name="keyword" placeholder="投稿を検索">
-                <button class="btn btn-primary" type="submit">検索</button>
-            </form>
-        </div>
-
+        
         <main>
             <div class="container">
                 {% block content %}
