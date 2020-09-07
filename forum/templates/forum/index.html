@@ -4,7 +4,7 @@
 {% block content %}
 <!-- ---------- 質問検索欄 ---------- -->
 <div class="main_wrap row">
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-8 my-3">
         <h2 class="text-center">質問を探す</h2>
         <hr>
         <div class="row">
@@ -62,21 +62,21 @@
     </div>
     <!-- 最新NEWS -->
     <div class="col-12 col-lg-4">
-        <div class="mt-3">
-            <h3 class="text-center">新着情報</h3>
+        <div class="my-3">
+            <h2 class="text-center">新着情報</h2>
             <hr>
             <div class="">
                 <div class="medium">
                     {% for news in news_list %}
-                    <div class="media news p-2 btn-outline-info bg-white shadow">
-                        <a class="text-dark d-flex justify-content-start" href="#">
-                            <div class="media-body">
+                    <div class="media news p-2 bg-white">
+                        <div class="media-body">
+                            <a class="" href="{% url 'news_detail' news.id %}">
                                 <h5 class="text-info font-weight-bold mt-0">{{ news.title }}</h5>
-                                <p>{{ news.text|linebreaksbr|truncatechars:100 }}</p>
-                                <p class="media-detail text-right m-0 font-weight-light">
-                                    投稿日時：{{ news.created_date }}</p>
-                            </div>
-                        </a>
+                            </a>
+                            <p>{{ news.text|linebreaksbr|truncatechars:100 }}</p>
+                            <p class="media-detail text-right m-0 font-weight-light">
+                                投稿日時：{{ news.created_date }}</p>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>

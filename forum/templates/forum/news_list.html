@@ -10,7 +10,7 @@
             <hr>
             <div class="medium p-2">
                 {% for news in news_data %}
-                <div class="media news shadow mb-3">
+                <div class="media news    mb-3">
                     <div class="media-body bg-white p-3">
                         <h5><a class="text-info font-weight-bold"
                                 href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h5>

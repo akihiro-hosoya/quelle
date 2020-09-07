@@ -10,26 +10,24 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
 
     <title>Qulle</title>
 </head>
 
 <body>
-    <div class="all">
+    <div id="wrapper">
         <!-- ---------- Navigation ---------- -->
         <header>
-            <div class="nav-wrap row pt-1">
+            <div class="nav-wrap py-3 row">
                 <div class="nav-title col-12 col-md-4">
                     <a href="/">
                         <h3>Quelle</h3>
                     </a>
                 </div>
-                <ul class="nav-list col-12 col-md-8 d-flex justify-content-around align-items-center">
+                <div class="col-0 col-md-2"></div>
+                <ul class="nav-list col-12 col-md-6 d-flex justify-content-around align-items-center">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a href="{% url 'news_list' %}" class="">NEWS</a>
@@ -57,7 +55,7 @@
                 </ul>
             </div>
         </header>
-        
+
         <main>
             <div class="container">
                 {% block content %}
@@ -67,7 +65,7 @@
 
         <!-- ---------- Footer ---------- -->
         <footer>
-            <div class="footer-wrapper mt-1 pt-2">
+            <div class="footer pt-2">
                 <div class="container-fluid padding">
                     <div class="row">
                         <!-- コピーライト系 -->

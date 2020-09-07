@@ -8,10 +8,8 @@ html {
     height: 100%;
 }
 body {
-    background: #e3f7ff;
-    display: flex;
-    flex-flow: column;
-    min-height: 100vh;
+    background: #e6e6e6;
+    height: 100%;
 }
 
 main {
@@ -32,7 +30,6 @@ a {
 
 h1, h2, h3, h4, h5, h6, p {
     line-height: 1em;
-    font-family: 'Fredoka One', cursive;
 }
 
 /* 全体 */
@@ -44,9 +41,10 @@ h1, h2, h3, h4, h5, h6, p {
     background: linear-gradient(transmiddle 70%, #dc143c 90%);
     font-weight: bold;
 }
-.all {
-    padding: auto;
+#wrapper {
     width: 100%;
+    position:relative;
+    min-height: 100%;
 }
 header, main, footer {
     width: ;
@@ -54,7 +52,6 @@ header, main, footer {
 
 header, footer {
     background-color: #6495ed;
-    font-family: 'Fredoka One', cursive;
 }
 
 /* ---------- Navigation ---------- */
@@ -67,6 +64,7 @@ header, footer {
 .nav-item a {
     color: #fff;
     padding-left: 0.5em;
+    font-size: large;
 }
 
 /* Index */
@@ -86,8 +84,7 @@ header, footer {
     margin: 0.2rem;
 }
 .news {
-    border: solid #fff 1px;
-    border-radius: 15px;
+    border: solid rgb(186, 186, 186) 2px;
     overflow: hidden;
 }
 
@@ -99,8 +96,7 @@ header, footer {
 }
 .profile_table {
     width: 100%;
-    border: 1px solid black;
-    border-radius: 1rem;
+    border: 1px solid rgb(186, 186, 186);
     border-collapse: collapse;
     overflow: hidden;
 }
@@ -113,6 +109,7 @@ header, footer {
 .profile_table .data {
     padding: 20px;
     background-color: white;
+    border-left: solid 2px rgb(186, 186, 186);
 }
 .button {
     width: 200px;
@@ -127,11 +124,9 @@ header, footer {
     grid-template-columns: repeat(2, 1fr);
 }
 .form-control:focus {
-    box-shadow: none;
 }
 .account_card {
     width: 400px;
-    border: 0;
 }
 .form-label-group {
     margin-bottom: 1rem;
@@ -139,8 +134,7 @@ header, footer {
 
 /* ---------- カテゴリ検索欄 ---------- */
 .category-card {
-    border: solid 1px #fff;
-    border-radius: 10px;
+    border: solid 1px rgb(186, 186, 186)ff;
 }
 .category-item {
     text-align: center;
@@ -223,15 +217,13 @@ header, footer {
     font-size: 12px;
 }
 .comments {
-    border: solid #fff 1px;
-    border-radius: 10px;
+    border: solid rgb(186, 186, 186) 1px;
     background-color: #fff;
 }
 
 /* ---------- 質問リスト ---------- */
 .posts{
-    border: #fff solid 1px;
-    border-radius: 10px;
+    border: rgb(186, 186, 186) solid 1px;
 }
 
 /* ---------- ページネーション ----------- */
@@ -242,14 +234,19 @@ header, footer {
     content: "\0bb";
 }
 
-
 /* footer */
+.bottoms {
+    margin-bottom: 1000px;
+}
 footer {
     background-color: #6495ed;
-    font-family: 'Fredoka One', cursive;
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    margin: 100px 0 0 0;
+    z-index: 1;
 }
 .footer-wrapper {
-    width: 90%;
     margin: 0 auto;
 }
 .copy-w {

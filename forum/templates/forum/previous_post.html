@@ -14,11 +14,11 @@
     <div class="col-12 col-lg-8">
         <!-- ---------- 質問リスト ---------- -->
         <div class="">
-            <h4 class="mb-3 text-center">投稿一覧</h4>
+            <h4 class="my-3 text-center">投稿一覧</h4>
             <hr>
             <div class="medium">
                 {% for post in post_list %}
-                <div class="media posts p-2 bg-white shadow">
+                <div class="media posts p-2 bg-white   ">
                     <div class="media-body">
                         <a class="d-block" href="{% url 'post_detail' pk=post.pk %}">
                             <h5 class="text-info mt-0">{{ post.title }}</h5>

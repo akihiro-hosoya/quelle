@@ -16,7 +16,7 @@
                         <p>検索結果：全{{ post_data.count }}件</p>
                         <div class="medium">
                             {% for post in post_data %}
-                            <div class="media posts p-2 bg-white shadow">
+                            <div class="media posts p-2 bg-white   ">
                                 <div class="media-body">
                                     <a href="{% url 'post_detail' pk=post.pk %}">
                                         <h5 class="text-primary">{{ post.title }}</h5>
@@ -42,7 +42,7 @@
                 <h4>Categories</h4>
             </div>
             <hr>
-            <div class="category-card bg-white p-3 shadow">
+            <div class="category-card bg-white p-3   ">
                 <div class="">
                     {% for large in large_list %}
                     <ul>
